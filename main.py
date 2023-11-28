@@ -3,9 +3,10 @@ import random
 
 pygame.init()
 
-NUM_SNOW = 100
+NUM_SNOW = 150
 WIDTH = 800
 HEIGHT = 600
+speed = 2
 
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 
@@ -22,9 +23,12 @@ while is_running:
         if event.type == pygame.QUIT:
             is_running = False
 
+    screen.fill((0, 0, 0))
+
     for snow in snow_list:
         pygame.draw.circle(screen, (255, 255, 255),
                            (snow[0], snow[1]), snow[2])
+        snow[1] += speed
 
     pygame.display.flip()
 
